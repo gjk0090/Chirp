@@ -40,6 +40,12 @@ app.controller('mainController',function($scope, $rootScope, postsService){
   $scope.newPost = {created_by:$rootScope.current_user, text:'', created_at:''};
 
   $scope.posts = postsService.query();
+  // methods of $resource
+  // 'get':    {method:'GET'},
+  // 'save':   {method:'POST'},
+  // 'query':  {method:'GET', isArray:true},
+  // 'remove': {method:'DELETE'},
+  // 'delete': {method:'DELETE'}
 
   $scope.post = function() {
     $scope.newPost.created_at = Date.now();
