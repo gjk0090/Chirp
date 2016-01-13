@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
 
+var index = require('./routes/index');
 var api = require('./routes/api');
 var auth = require('./routes/auth')(passport);
 
@@ -28,7 +29,7 @@ app.use(session({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); //where to find pages
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -36,6 +37,7 @@ app.use(passport.session());
 var initPassport = require('./passport-init');
 initPassport(passport);
 
+app.use('/', index);
 app.use('/api', api);
 app.use('/auth', auth);
 

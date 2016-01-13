@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="chirpApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Chirp!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
+    <script src="scripts/chirpApp.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="styles/style.css">
+  </head>
+  <body>
+    <nav class="navbar-fluid navbar-default">
+      <div class="container">
+        <a class="navbar-brand" href="#"> Chirp! </a>
+        <p class="navbar-text"> Learn the MEAN stack by building this tiny app</p>
+        <p class="navbar-right navbar-text" ng-hide="authenticated"><a href="#/login">Login</a> or <a href="#/register">Register</a></p>
+        <p class="navbar-right navbar-text" ng-show="authenticated"><a href="#" ng-click="signout()">Logout</a></p>
+        <p class="navbar-right navbar-text" ng-show="authenticated">Signed in as {{current_user}}</p>
+      </div>
+    </nav>
+    <div class="col-md-offset-2 col-md-8">
+      <div class="" ng-view></div>
+    </div>
+  </body>
+</html>
