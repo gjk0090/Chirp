@@ -1,4 +1,5 @@
 var app = angular.module('chirpApp',['ngRoute','ngResource'])
+
 //setting up $rootScope
 .run(function($rootScope, $http) {
   $rootScope.authenticated = false;
@@ -13,7 +14,6 @@ var app = angular.module('chirpApp',['ngRoute','ngResource'])
 //routes
 app.config(function($routeProvider){
 	$routeProvider
-		//the timeline display
 		.when('/', {
 			templateUrl: 'main.html',
 			controller: 'mainController'
@@ -30,10 +30,12 @@ app.config(function($routeProvider){
 		});
 });
 
+
 //a factory service using $resource
 app.factory('postsService', function($resource){
   return $resource('/api/posts/:id');
 });
+
 
 app.controller('mainController',function($scope, $rootScope, postsService){
 
@@ -55,6 +57,7 @@ app.controller('mainController',function($scope, $rootScope, postsService){
     });
   };
 });
+
 
 app.controller('authController',function($scope, $http, $rootScope, $location){
   $scope.user = {username:'',password:''};

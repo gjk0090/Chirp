@@ -8,9 +8,14 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
 
+var mongoose = require('mongoose');//add for Mongo support
+mongoose.connect('mongodb://localhost/test-chirp');
+require('./models/models');
+
 var index = require('./routes/index');
 var api = require('./routes/api');
 var auth = require('./routes/auth')(passport);
+
 
 var app = express();
 
