@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public'))); //where to find pages
 app.use(passport.initialize());
 app.use(passport.session());
 // Initialize Passport
-var initPassport = require('./passport-init');
+var initPassport = require('./passport/passport-init');
 initPassport(passport);
 
 app.use('/', index);

@@ -15,17 +15,17 @@ var app = angular.module('chirpApp',['ngRoute','ngResource'])
 app.config(function($routeProvider){
 	$routeProvider
 		.when('/', {
-			templateUrl: 'main.html',
+			templateUrl: 'template/main.html',
 			controller: 'mainController'
 		})
 		//the login display
 		.when('/login', {
-			templateUrl: 'login.html',
+			templateUrl: 'template/login.html',
 			controller: 'authController'
 		})
 		//the signup display
 		.when('/register', {
-			templateUrl: 'register.html',
+			templateUrl: 'template/register.html',
 			controller: 'authController'
 		});
 });
